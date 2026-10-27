@@ -27,6 +27,12 @@ jobs:
         run: npm test
       - name: Build
         run: npm run build
+      - name: Save downloadable Zoya website
+        uses: actions/upload-artifact@v4
+        with:
+          name: zoya-built-website
+          path: dist
+          if-no-files-found: error
       - uses: actions/configure-pages@v5
         with:
           enablement: true
