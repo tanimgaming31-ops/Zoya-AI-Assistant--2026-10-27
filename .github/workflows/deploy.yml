@@ -27,6 +27,15 @@ jobs:
         run: npm test
       - name: Build
         run: npm run build
+      - name: Package complete source ZIP
+        run: |
+          zip -q -r Zoya-AI-Assistant-source.zip src public scripts tests .github package.json package-lock.json tsconfig.json vite.config.ts index.html postcss.config.cjs tailwind.config.cjs README.md ANDROID-SETUP-BN.md .gitignore
+      - name: Save downloadable Zoya source
+        uses: actions/upload-artifact@v4
+        with:
+          name: zoya-complete-source
+          path: Zoya-AI-Assistant-source.zip
+          if-no-files-found: error
       - name: Save downloadable Zoya website
         uses: actions/upload-artifact@v4
         with:

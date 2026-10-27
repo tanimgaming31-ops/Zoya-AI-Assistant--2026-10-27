@@ -28,3 +28,11 @@ The source compiles and the GitHub Actions tests passed on October 27, 2026. The
 **One owner-only action is still required:** Open [the repository GitHub Pages settings](https://github.com/tanimgaming31-ops/Zoya-AI-Assistant--2026-10-27/settings/pages), choose **GitHub Actions** as the Build and deployment Source, then run the [Zoya Build and Deploy workflow](https://github.com/tanimgaming31-ops/Zoya-AI-Assistant--2026-10-27/actions/workflows/deploy.yml). ChatGPT's GitHub integration can push files, but cannot activate repository Pages configuration on your behalf.
 
 Default Gemini model is `gemini-3.8-live`. Switch to the original `gemini-3.1-flash-live-preview` in Settings only if you specifically need the legacy preview. Neither model will talk until a user supplies a valid key and opens the app over HTTPS.
+
+## Android install shortcut (PWA)
+
+Zoya now has a web app manifest, generated 192px/512px icons, and a service worker that caches the **UI only**. Once the site is published over HTTPS, open it in Android Chrome > three-dot menu > **Add to Home screen** / **Install app**. This creates a web app shortcut, **not an APK**. Live Gemini audio does not work offline.
+
+Each GitHub Actions run also uploads **zoya-complete-source** (source ZIP, nested) and **zoya-built-website** (production website ZIP) from the current commit. The GitHub Pages Source selection requires repository-owner access. The workflow does not falsely claim that Pages is live when it is disabled.
+
+To protect your key, never put it in GitHub files. About Me is saved only in Zoya local browser storage and sent to Gemini as voice-call context. No Maya settings or memories are accessed.

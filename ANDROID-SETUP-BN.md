@@ -11,3 +11,9 @@
 
 ## GitHub Pages চালু না থাকলে
 প্রকল্পের সব ফাইল ও বিল্ড ডাউনলোড করার সুযোগ থাকবে; কিন্তু লাইভ লিংক কাজ করবে না। শুধু রিপোজিটরির মালিক `Settings > Pages > Build and deployment > Source > GitHub Actions` চালু করতে পারবেন। তারপর Actions থেকে Zoya Build and Deploy আবার চালাতে হবে।
+
+## সরাসরি ZIP ডাউনলোড
+Actions > সর্বশেষ Zoya Build and Deploy রান > Artifacts থেকে **zoya-complete-source** এবং **zoya-built-website** ডাউনলোড করুন। প্রথমটি সম্পূর্ণ সোর্স; দ্বিতীয়টি তৈরি ওয়েবসাইট। Zoya চালাতে HTTPS ওয়েব হোস্টিং দরকার। এটি Android APK নয়।
+
+## Home Screen-এ ইনস্টল
+Pages চালু হলে Chrome দিয়ে Zoya সাইট খুলুন। Chrome-এর তিন ডট মেনু থেকে **Add to Home screen** বা **Install app** নির্বাচন করুন। এতে Zoya আলাদা অ্যাপের মতো খুলবে, কিন্তু ব্যাকগ্রাউন্ডে সবসময় মাইক্রোফোন চালু থাকবে না এবং অফলাইনে AI ভয়েস কাজ করবে না।
