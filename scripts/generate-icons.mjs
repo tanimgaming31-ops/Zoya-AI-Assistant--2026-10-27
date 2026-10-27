@@ -24,4 +24,4 @@ function icon(size){
  return png;
 }
 mkdirSync('public',{recursive:true});
-for(const size of [192,512]){const target=join('public',`icon-${size}.png`);writeFileSync(target,icon(size));console.log('Generated',target);}
+for(const size of [48,72,96,144,192,512]){const target=join('public',`icon-${size}.png`);writeFileSync(target,icon(size));console.log('Generated',target);}
