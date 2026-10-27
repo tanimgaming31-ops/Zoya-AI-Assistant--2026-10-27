@@ -1,0 +1,32 @@
+name: Publish Zoya APK Direct Download
+on:
+  push:
+    paths:
+      - '.github/workflows/release-apk.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Download tested APK from successful Android build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p release-assets
+          gh run download 40555640956 --repo "$GITHUB_REPOSITORY" --name Zoya-AI-Assistant-Android-APK --dir release-assets
+          test -s release-assets/app-debug.apk
+          mv release-assets/app-debug.apk release-assets/Zoya-AI-Assistant.apk
+          sha256sum release-assets/Zoya-AI-Assistant.apk
+      - name: Publish a stable direct APK link
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="zoya-v1.0-debug"
+          if ! gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "$tag" --repo "$GITHUB_REPOSITORY" --target main --title "Zoya AI Assistant v1.0 (Android APK)" --notes "Experimental debug-signed Android APK. Install only if you trust this Zoya repository. Internet and your own Gemini API key are needed for live voice."
+          fi
+          gh release upload "$tag" release-assets/Zoya-AI-Assistant.apk --repo "$GITHUB_REPOSITORY" --clobber
