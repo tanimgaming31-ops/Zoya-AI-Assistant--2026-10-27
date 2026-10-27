@@ -33,11 +33,19 @@ jobs:
           name: zoya-built-website
           path: dist
           if-no-files-found: error
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
+      - name: Check GitHub Pages configuration
+        id: pages
+        uses: actions/configure-pages@v5
+        continue-on-error: true
+      - name: Explain how to activate GitHub Pages
+        if: steps.pages.outcome != 'success'
+        run: |
+          echo "::warning::The app built and the website ZIP is downloadable, but GitHub Pages is not yet activated."
+          echo "::warning::Repo Settings > Pages > Build and deployment > Source: GitHub Actions. Then rerun this workflow."
       - uses: actions/upload-pages-artifact@v3
+        if: steps.pages.outcome == 'success'
         with:
           path: dist
       - id: deploy
+        if: steps.pages.outcome == 'success'
         uses: actions/deploy-pages@v4

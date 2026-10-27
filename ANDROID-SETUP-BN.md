@@ -8,3 +8,6 @@
 6. কেন্দ্রের Microphone বোতাম ট্যাপ করে Android-এ Microphone Allow করুন।
 
 এটি ওয়েব অ্যাপ, APK নয়। Maya-র কোনো ফাইল বদলানো হয়নি। Gemini Live চালানোর জন্য ইন্টারনেট, বৈধ API key ও মডেল অ্যাক্সেস প্রয়োজন।
+
+## GitHub Pages চালু না থাকলে
+প্রকল্পের সব ফাইল ও বিল্ড ডাউনলোড করার সুযোগ থাকবে; কিন্তু লাইভ লিংক কাজ করবে না। শুধু রিপোজিটরির মালিক `Settings > Pages > Build and deployment > Source > GitHub Actions` চালু করতে পারবেন। তারপর Actions থেকে Zoya Build and Deploy আবার চালাতে হবে।

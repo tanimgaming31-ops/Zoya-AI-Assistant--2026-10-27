@@ -20,3 +20,11 @@ npm install
 npm test
 npm run build
 ```
+
+## Build and deployment status
+
+The source compiles and the GitHub Actions tests passed on October 27, 2026. The workflow always uploads a downloadable `zoya-built-website` ZIP, including while GitHub Pages is disabled.
+
+**One owner-only action is still required:** Open [the repository GitHub Pages settings](https://github.com/tanimgaming31-ops/Zoya-AI-Assistant--2026-10-27/settings/pages), choose **GitHub Actions** as the Build and deployment Source, then run the [Zoya Build and Deploy workflow](https://github.com/tanimgaming31-ops/Zoya-AI-Assistant--2026-10-27/actions/workflows/deploy.yml). ChatGPT's GitHub integration can push files, but cannot activate repository Pages configuration on your behalf.
+
+Default Gemini model is `gemini-3.8-live`. Switch to the original `gemini-3.1-flash-live-preview` in Settings only if you specifically need the legacy preview. Neither model will talk until a user supplies a valid key and opens the app over HTTPS.
