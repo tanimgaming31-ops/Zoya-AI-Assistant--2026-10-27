@@ -1,0 +1,21 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+:root{font-family:Inter,system-ui,-apple-system,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}html,body,#root{margin:0;min-height:100%;width:100%}
+button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #d7bcff;outline-offset:3px}
+.zoya{position:relative;background:#070512}
+.aura{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 85% 46% at 50% 42%,rgba(107,44,218,.23),transparent 73%),radial-gradient(ellipse 55% 43% at 0% 0%,rgba(15,74,134,.17),transparent 70%)}
+.glass{border:1px solid rgba(232,220,255,.18);background:rgba(44,31,81,.36);backdrop-filter:blur(20px)}
+.dot{display:inline-block;margin-right:8px;height:8px;width:8px;border-radius:50%;background:#9681ab}.dot.active{background:#43edcc;box-shadow:0 0 12px #43edcc}
+.orb{position:relative;display:flex;align-items:center;justify-content:center;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle at 32% 20%,rgba(252,195,255,.92),rgba(133,82,222,.84) 33%,rgba(24,16,63,.96) 69%,transparent 78%);box-shadow:0 0 50px rgba(147,90,250,.36),inset 0 0 47px rgba(240,178,255,.2)}
+.orb:before,.orb:after{content:"";position:absolute;inset:-15px;border-radius:50%;border:1px solid rgba(190,156,255,.2)}.orb:after{inset:-29px;border-color:rgba(190,156,255,.12)}
+.orb.awake{animation:float 3s ease-in-out infinite;box-shadow:0 0 75px rgba(196,109,255,.55),inset 0 0 47px rgba(250,163,255,.3)}
+.orb-line{position:absolute;inset:22px;border:1px solid rgba(255,235,255,.26);border-radius:50%}.orb-inner{position:absolute;inset:44px;border:1px solid rgba(255,235,255,.16);border-radius:50%}.orb-letter{position:relative;z-index:1;font-size:95px;font-weight:200}
+.wave{width:3px;border-radius:8px;background:linear-gradient(#ffa5ee,#9985ff);transition:height .13s ease}.wave.speaking{animation:wave .63s ease-in-out infinite alternate}
+.power,.primary{background:linear-gradient(145deg,#ec7edc,#7453e5);box-shadow:0 12px 38px rgba(141,86,238,.3)}.power:active,.primary:active{transform:scale(.97)}
+.sheet{border:1px solid rgba(255,255,255,.15);background:linear-gradient(160deg,#231939,#0b0b1d)}
+.label{display:flex;align-items:center;gap:7px;margin-bottom:10px;color:#d2c2ed;font-size:12px;font-weight:600}
+.input{display:block;width:100%;padding:13px;border:1px solid rgba(255,255,255,.17);border-radius:13px;background:rgba(4,4,19,.62);font-size:13px;color:white}
+select option{background:#1c1832}
+@keyframes wave{0%{transform:scaleY(.35)}100%{transform:scaleY(1)}}
+@keyframes float{50%{transform:translateY(-7px)}}
+@media(prefers-reduced-motion:reduce){.wave,.orb{animation:none!important}}
