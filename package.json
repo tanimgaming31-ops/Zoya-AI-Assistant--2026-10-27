@@ -9,13 +9,16 @@
     "preview": "vite preview",
     "test": "node --test tests/*.test.mjs",
     "prebuild": "node scripts/generate-icons.mjs",
-    "predev": "node scripts/generate-icons.mjs"
+    "predev": "node scripts/generate-icons.mjs",
+    "android:sync": "npm run build && npx cap sync android"
   },
   "dependencies": {
     "@google/genai": "^1.30.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "lucide-react": "^0.468.0"
+    "lucide-react": "^0.468.0",
+    "@capacitor/core": "7.6.9",
+    "@capacitor/android": "7.6.9"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.7.0",
@@ -25,6 +28,7 @@
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.3",
-    "vite": "^6.0.1"
+    "vite": "^6.0.1",
+    "@capacitor/cli": "7.6.9"
   }
 }

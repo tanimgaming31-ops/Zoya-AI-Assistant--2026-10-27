@@ -17,3 +17,13 @@ Actions > সর্বশেষ Zoya Build and Deploy রান > Artifacts থ�
 
 ## Home Screen-এ ইনস্টল
 Pages চালু হলে Chrome দিয়ে Zoya সাইট খুলুন। Chrome-এর তিন ডট মেনু থেকে **Add to Home screen** বা **Install app** নির্বাচন করুন। এতে Zoya আলাদা অ্যাপের মতো খুলবে, কিন্তু ব্যাকগ্রাউন্ডে সবসময় মাইক্রোফোন চালু থাকবে না এবং অফলাইনে AI ভয়েস কাজ করবে না।
+
+## Android APK ইন্সটল (Chrome নয়, আসল APK)
+1. [Build Zoya Android APK](https://github.com/tanimgaming31-ops/Zoya-AI-Assistant--2026-10-27/actions/workflows/android-apk.yml) খুলুন।
+2. **Run workflow → main → Run workflow** চাপুন। Build সফল হলে সেই রান খুলুন।
+3. **Artifacts → Zoya-AI-Assistant-Android-APK** ডাউনলোড করুন; ZIP থেকে `app-debug.apk` Extract করুন।
+4. Android Files/Downloads-এ `app-debug.apk` ট্যাপ করুন। প্রথমবার দরকার হলে এই উৎসের জন্য **Install unknown apps** অনুমতি দিন।
+5. **Zoya AI Assistant** খুলুন, Android Microphone অনুমতি দিন, Settings-এ নিজস্ব Gemini API Key এবং About Me দিয়ে Save করুন।
+6. Zoya-র মাইক বোতাম ট্যাপ করে পরীক্ষা করুন। Internet লাগবে।
+
+**সতর্কতা:** এটি debug-signed পরীক্ষামূলক APK; Play Store release নয়। নতুন GitHub runner-এর debug key বদলালে আগের APK uninstall করে নতুনটি ইনস্টল করতে হতে পারে—আগে About Me Export করে রাখবেন। WebView-এর অডিও ও Gemini লাইভ কল ফোনে পরীক্ষা ছাড়া নিশ্চিত বলা যাবে না। এই অ্যাপ Maya থেকে সম্পূর্ণ আলাদা।

@@ -36,3 +36,8 @@ Zoya now has a web app manifest, generated 192px/512px icons, and a service work
 Each GitHub Actions run also uploads **zoya-complete-source** (source ZIP, nested) and **zoya-built-website** (production website ZIP) from the current commit. The GitHub Pages Source selection requires repository-owner access. The workflow does not falsely claim that Pages is live when it is disabled.
 
 To protect your key, never put it in GitHub files. About Me is saved only in Zoya local browser storage and sent to Gemini as voice-call context. No Maya settings or memories are accessed.
+
+## Install as a REAL Android APK (no PC)
+This repository now contains a Capacitor v7 Android build workflow. Open [GitHub Actions > Build Zoya Android APK](https://github.com/tanimgaming31-ops/Zoya-AI-Assistant--2026-10-27/actions/workflows/android-apk.yml), run workflow on `main`, and download its `Zoya-AI-Assistant-Android-APK` artifact. Unzip once and tap the `app-debug.apk` file in Android Downloads to install it. Use the device's Install unknown apps permission only for your trusted GitHub-generated APK.
+
+It is **a debug-signed APK, not a Google Play signed production release**; repeat builds may have different debug signing certificates on GitHub runners, meaning reinstall may require uninstalling an old debug build (back up About Me first). The native WebView includes the UI and uses Capacitor's native WebChromeClient for microphone permission; no guarantee of phone-model-specific audio support before a real device test. API key and internet access are still required for Gemini Live. This is not a background service or a direct WhatsApp controller.

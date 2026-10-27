@@ -3,3 +3,6 @@ dist/
 .env
 .env.*
 !.env.example
+
+# Generated only in GitHub Actions; keep Java/Gradle sources in the build artifact, not the web repository.
+android/
