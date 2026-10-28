@@ -137,7 +137,7 @@ export default function App(){
      <button className="glass max-w-xs rounded-2xl p-4 text-center text-sm" onClick={()=>{setDraft(settings);setPanel(true);}}>Tap here to add your 3 Zoya character videos in Settings</button>:null}
     {background&&<span className="glass rounded-lg px-3 py-1 text-[11px]">Android foreground notification active</span>}
     <div className="glass rounded-full px-4 py-2 text-[11px] font-medium uppercase tracking-widest"><span className={'dot mr-2 '+(active?'active':'')}/>{status}</div>
-    <button aria-label={status==='disconnected'?'Start live voice call':'End live voice call'} className="power flex h-16 w-16 items-center justify-center rounded-full" style={{boxShadow:active?`0 0 \${16+Math.min(50,level*150)}px rgba(233,150,255,.65)\`:undefined}} onClick={()=>void call()}>
+    <button aria-label={status==='disconnected'?'Start live voice call':'End live voice call'} className="power flex h-16 w-16 items-center justify-center rounded-full" style={{boxShadow:active?`0 0 ${16+Math.min(50,level*150)}px rgba(233,150,255,.65)`:undefined}} onClick={()=>void call()}>
      {status==='disconnected'?<Mic size={28}/>:<Power size={28}/>}
     </button>
     <p className="text-xs text-white/85">{labels[status]}</p>
