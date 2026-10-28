@@ -121,6 +121,11 @@ export default function App(){
    setDraft(v=>({...v,aboutMe:result.aboutMe as string}));setInfo('About Me loaded. Tap Save Changes.');
   }catch(err){setError(err instanceof Error?err.message:'Import failed.');}
  }
+ useEffect(()=>{
+  if(status==='disconnected'&&background){
+   void stopBackground().then(()=>setBackground(false));
+  }
+ },[status,background]);
  const active=status==='listening'||status==='speaking';
  return <div className="zoya-video text-white">
   {clipUrls[character]
