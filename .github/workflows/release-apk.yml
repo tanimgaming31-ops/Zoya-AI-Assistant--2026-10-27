@@ -20,7 +20,7 @@ jobs:
           gh run download 40655326870 --repo "$GITHUB_REPOSITORY" --name Zoya-AI-Assistant-Android-APK --dir release-assets
           test -s release-assets/app-debug.apk
           mv release-assets/app-debug.apk release-assets/Zoya-Character-Voice-Android.apk
-          sha256sum release-assets/Zoya-AI-Assistant.apk
+          sha256sum release-assets/Zoya-Character-Voice-Android.apk
       - name: Publish a stable direct APK link
         env:
           GH_TOKEN: ${{ github.token }}
@@ -29,4 +29,4 @@ jobs:
           if ! gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
             gh release create "$tag" --repo "$GITHUB_REPOSITORY" --target main --title "Zoya AI Assistant v1.1 - Fullscreen Video Characters" --notes "Debug-signed Zoya with fullscreen three-video importer, Gemini Live voice character switching, and an Android foreground-service notification. Import your three MP4 clips from Settings after installing. A valid Gemini API key and Internet are required. Continuous voice when the screen is locked is not guaranteed."
           fi
-          gh release upload "$tag" release-assets/Zoya-AI-Assistant.apk --repo "$GITHUB_REPOSITORY" --clobber
+          gh release upload "$tag" release-assets/Zoya-Character-Voice-Android.apk --repo "$GITHUB_REPOSITORY" --clobber
