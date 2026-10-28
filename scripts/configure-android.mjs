@@ -20,7 +20,7 @@ if(!xml.includes('android.hardware.microphone')){
  xml=xml.replace('<application', '<uses-feature android:name="android.hardware.microphone" android:required="false" />\n    <application');
 }
 if(!xml.includes('ZoyaForegroundService')){
- xml=xml.replace('</application>', '  <service android:name=".ZoyaForegroundService" android:exported="false" android:foregroundServiceType="microphone" />\\n    </application>');
+ xml=xml.replace('</application>', '  <service android:name=".ZoyaForegroundService" android:exported="false" android:foregroundServiceType="microphone" />\n    </application>');
 }
 writeFileSync(manifest,xml);
 // Capacitor BridgeWebChromeClient natively handles WebView's AUDIO_CAPTURE permission request.
@@ -28,7 +28,7 @@ writeFileSync(manifest,xml);
 // Do not replace the Bridge's WebChromeClient with a permissive blanket-grant handler.
 const packageDir=join(root,'java/com/zoya/aiassistant');
 mkdirSync(packageDir,{recursive:true});
-writeFileSync(join(packageDir,'MainActivity.java'),\`package com.zoya.aiassistant;
+writeFileSync(join(packageDir,'MainActivity.java'),`package com.zoya.aiassistant;
 
 import android.os.Bundle;
 import com.getcapacitor.BridgeActivity;
@@ -40,8 +40,8 @@ public class MainActivity extends BridgeActivity {
     super.onCreate(savedInstanceState);
   }
 }
-\`);
-writeFileSync(join(packageDir,'ZoyaBackgroundPlugin.java'),\`package com.zoya.aiassistant;
+`);
+writeFileSync(join(packageDir,'ZoyaBackgroundPlugin.java'),`package com.zoya.aiassistant;
 
 import android.Manifest;
 import android.content.Context;
@@ -90,8 +90,8 @@ public class ZoyaBackgroundPlugin extends Plugin {
     call.resolve(result);
   }
 }
-\`);
-writeFileSync(join(packageDir,'ZoyaForegroundService.java'),\`package com.zoya.aiassistant;
+`);
+writeFileSync(join(packageDir,'ZoyaForegroundService.java'),`package com.zoya.aiassistant;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -151,7 +151,7 @@ public class ZoyaForegroundService extends Service {
   }
   @Override public IBinder onBind(Intent intent) { return null; }
 }
-\`);
+`);
 for(const [density,size] of [['mdpi',48],['hdpi',72],['xhdpi',96],['xxhdpi',144],['xxxhdpi',192]]){
  const folder=join(root,'res','mipmap-'+density);
  mkdirSync(folder,{recursive:true});
